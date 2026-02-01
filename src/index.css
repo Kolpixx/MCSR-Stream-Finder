@@ -5,3 +5,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: var(--base);
+
+  --base: #0F1411;
+  --overlay: #000F10;
+  --overlay-1: #081419;
+}

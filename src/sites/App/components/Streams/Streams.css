@@ -1,0 +1,45 @@
+#streams {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    color: white;
+}
+
+.stream-container {
+    width: 280px;
+    height: 360px;
+    background: var(--overlay);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.stream-thumbnail {
+    width: 100%;
+    height: 50%;
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    background: var(--overlay-1);
+}
+
+.stream-tags {
+    display: flex;
+    gap: 5px;
+    overflow-x: scroll;
+}
+
+.stream-tag {
+    background: var(--overlay-1);
+}
+
+.stream-container-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.stream-container-twitch-info {
+    display: flex;
+    flex-direction: column;
+}
