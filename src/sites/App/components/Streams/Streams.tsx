@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import './Streams.css'
+import { getDivision } from '../../../../utils'
 
 type Stream = {
     country: string,
@@ -56,7 +57,7 @@ export default function Streams() {
                             <div>
                                 <span>{stream.twitch.display_name}</span>
                                 <span>⬦</span>
-                                <span>{stream.elo}</span>
+                                <span>{getDivision(stream.elo)} ({stream.elo})</span>
                             </div>
                             <div className="divider" />
                             <div className="stream-container-twitch-info">
