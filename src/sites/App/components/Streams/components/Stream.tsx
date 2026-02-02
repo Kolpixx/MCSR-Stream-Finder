@@ -47,6 +47,7 @@ export default function Stream({ stream, currentTime } : Props) {
                             </div>
                         </div>
                         <span>Language: {stream.twitch.language !== undefined ? languageName.of(stream.twitch.language) : "/"}</span>
+                        <span>Viewers: {stream.twitch.viewers}</span>
                         <span>Online For: {padNumber(Math.floor((elapsedTime / (60 * 60))), 2)}:{padNumber(Math.floor((elapsedTime / 60) % 60), 2)}</span>
                     </div>
                 </div>
