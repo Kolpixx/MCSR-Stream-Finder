@@ -64,7 +64,7 @@ export default function Streams() {
                         </div>
                         <div className="stream-container-bottom">
                             <div>
-                                <span>{stream.twitch.display_name}</span>
+                                <a className="stream-container-url" href={stream.url} target="_blank">{stream.twitch.display_name}</a>
                                 {stream.elo !== undefined &&
                                     <>
                                         <span>⬦</span>
