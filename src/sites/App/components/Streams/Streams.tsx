@@ -65,8 +65,13 @@ export default function Streams() {
                         <div className="stream-container-bottom">
                             <div>
                                 <span>{stream.twitch.display_name}</span>
-                                <span>⬦</span>
-                                <span>{getDivision(stream.elo)} ({stream.elo})</span>
+                                {stream.elo !== undefined &&
+                                    <>
+                                        <span>⬦</span>
+                                        <span className={`${getDivision(stream.elo, false)}-elo`}>{getDivision(stream.elo, true)} ({stream.elo})</span>
+                                    </>
+                                }
+
                             </div>
                             <div className="divider" />
                             <div className="stream-container-twitch-info">

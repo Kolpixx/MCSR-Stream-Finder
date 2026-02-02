@@ -31,6 +31,7 @@
 }
 
 .stream-tag {
+    flex-shrink: 0;
     background: var(--overlay-1);
 }
 
@@ -42,4 +43,46 @@
 .stream-container-twitch-info {
     display: flex;
     flex-direction: column;
+}
+
+.netherite-elo {
+    background: linear-gradient(to right, rgb(176, 14, 197), rgb(92, 36, 116));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.diamond-elo {
+    background: linear-gradient(to right, rgb(65, 179, 255), rgb(65, 65, 255));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.emerald-elo {
+    background: linear-gradient(to right, rgb(71, 255, 65), rgb(60, 151, 32));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.gold-elo {
+    background: linear-gradient(to right, rgb(255, 238, 0), rgb(192, 166, 16));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.iron-elo {
+    background: linear-gradient(to right, rgb(206, 206, 206), rgb(117, 117, 117));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.coal-elo {
+    background: linear-gradient(to right, rgb(41, 41, 41), rgb(29, 29, 29));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
