@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
+import { getDivision, padNumber } from '../../../../utils'
 import axios from 'axios'
 
 import './Streams.css'
-import { getDivision } from '../../../../utils'
 
 type Stream = {
     country: string,
@@ -25,11 +25,11 @@ type TwitchObject = {
 }
 
 export default function Streams() {
-
     const backendUrl: string = "localhost";
     const backendPort: string = "3000";
     
     const [data, setData] = useState<Array<Stream>>();
+    const [currentTime, setCurrentTime] = useState<Date>(new Date());
 
     useEffect(() => {
         axios.get(`http://${backendUrl}:${backendPort}/getstreams`)
@@ -45,9 +45,16 @@ export default function Streams() {
         console.log(data)
     }, [data]);
 
+    setTimeout(() => {
+        setCurrentTime(new Date());
+    }, 1000);
+
     return (
         <div id="streams">
             {data?.map((stream) => {
+                const startTimestamp = new Date(stream.twitch.startTimestamp);
+                const elapsedTime: number = (currentTime.getTime() - startTimestamp.getTime()) / 1000; // <- Elapsed time in seconds
+
                 return (
                     <div className="stream-container">
                         <div className="stream-container-top">
@@ -70,7 +77,7 @@ export default function Streams() {
                                     </div>
                                 </div>
                                 <span>Language: {stream.twitch.language}</span>
-                                <span>Online For: {stream.twitch.startTimestamp}</span>
+                                <span>Online For: {padNumber(Math.floor((elapsedTime / (60 * 60))), 2)}:{padNumber(Math.floor((elapsedTime / 60) % 60), 2)}</span>
                             </div>
 
                         </div>

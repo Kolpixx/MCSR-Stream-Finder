@@ -35,3 +35,11 @@ export function getDivision(elo: number) {
         return undefined;
     }
 }
+
+export function padNumber(givenNumber: number | string, padAmount: number) {
+    if (typeof givenNumber === "number") {
+        return givenNumber.toString().padStart(padAmount, "0");
+    } else {
+        return givenNumber.padStart(padAmount, "0");
+    }
+}
