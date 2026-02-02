@@ -41,8 +41,8 @@ export default function Stream({ stream, currentTime } : Props) {
                         <div>
                             <span>Tags</span>
                             <div className="stream-tags">
-                                {stream.twitch.tags?.map((tag) => {
-                                    return <div className="stream-tag">{tag}</div>;
+                                {stream.twitch.tags?.map((tag, index) => {
+                                    return <div key={index} className="stream-tag">{tag}</div>;
                                 })}
                             </div>
                         </div>
