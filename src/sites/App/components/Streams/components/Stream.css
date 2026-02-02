@@ -1,0 +1,57 @@
+.stream-container {
+    width: 322px;
+    height: 360px;
+    background: var(--overlay);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.stream-container-top {
+    height: 180px;
+}
+
+.stream-thumbnail {
+    width: 100%;
+    height: 100%;
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    background: var(--overlay-1);
+}
+
+.stream-tags {
+    display: flex;
+    gap: 5px;
+    overflow-x: scroll;
+}
+
+.stream-tag {
+    flex-shrink: 0;
+    background: var(--overlay-1);
+}
+
+.stream-container-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.stream-container-twitch-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stream-container-url {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.stream-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
