@@ -20,7 +20,7 @@ export default function Stream({ stream, currentTime } : Props) {
             <div className="stream-container" onMouseEnter={() => showStream(true)} onMouseLeave={() => showStream(false)}>
                 <div className="stream-container-top">
                     {showingStream ?
-                        <iframe className="stream-iframe" src={`https://player.twitch.tv/?channel=${stream.twitch.display_name}&parent=localhost`} allow="autoplay" width="100%" height="100%" frameBorder="0" ></iframe>
+                        <iframe className="stream-iframe" src={`https://player.twitch.tv/?channel=${stream.twitch.display_name}&parent=localhost`} width="100%" height="100%" frameBorder="0" ></iframe>
                         :
                         <img src={stream.twitch.thumbnail_url} className="stream-thumbnail" />
                     }
