@@ -31,6 +31,8 @@ export default function Streams() {
     const [data, setData] = useState<Array<Stream>>();
     const [currentTime, setCurrentTime] = useState<Date>(new Date());
 
+    const languageName = new Intl.DisplayNames(["en"], { type: "language"});
+
     useEffect(() => {
         axios.get(`http://${backendUrl}:${backendPort}/getstreams`)
             .then((response) => {
@@ -76,7 +78,7 @@ export default function Streams() {
                                         })}
                                     </div>
                                 </div>
-                                <span>Language: {stream.twitch.language}</span>
+                                <span>Language: {languageName.of(stream.twitch.language)}</span>
                                 <span>Online For: {padNumber(Math.floor((elapsedTime / (60 * 60))), 2)}:{padNumber(Math.floor((elapsedTime / 60) % 60), 2)}</span>
                             </div>
 
