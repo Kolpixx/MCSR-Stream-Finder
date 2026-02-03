@@ -1,0 +1,7 @@
+.checkbox {
+    width: 20px;
+    height: 20px;
+    background: white;
+    cursor: pointer;
+    color: black;
+}

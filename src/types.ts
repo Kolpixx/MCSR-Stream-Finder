@@ -1,6 +1,7 @@
 export type StreamType = {
     country: string,
     elo: number,
+    division: string,
     nickname: string,
     url: string,
     uuid: string,
