@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { divisionsMap } from '../../../../consts';
+import { divisionsMap, sortingOptionsMap } from '../../../../consts';
 import type { StreamType } from '../../../../types'
 import Dropdown from './components/Dropdown/Dropdown';
 
@@ -7,16 +7,23 @@ import './Options.css'
 
 type Props = {
     data: Array<StreamType>,
+    results: Array<StreamType>,
     setResults: Function
 }
 
-export default function Options({ data, setResults } : Props) {
+type SortingOrder = "ascending" | "descending";
+
+export default function Options({ data, results, setResults } : Props) {
     const languageName = new Intl.DisplayNames(["en"], { type: "language"});
     const languages: Map<string, number> = new Map();
 
     // States for the filter options
     const [filterLanguages, setFilterLanguages] = useState<Array<string>>([]);
     const [filterDivisons, setFilterDivisions] = useState<Array<string>>([]);
+    
+    // States for sorting the results
+    const [sorting, setSorting] = useState<string>("elo");
+    const [sortingOrder, setSortingOrder] = useState<SortingOrder>("ascending");
 
     // Add all the languages, that are currenty being streamed in, into the languages Map.
     data.forEach((stream) => {
@@ -51,6 +58,29 @@ export default function Options({ data, setResults } : Props) {
         setResults(newResults);
     }, [filterLanguages, filterDivisons]);
 
+    useEffect(() => {
+        const newResuts = [...results];
+
+        switch (sorting) {
+            case "elo":
+                sortingOrder === "ascending" ? newResuts.sort((a, b) => b.elo - a.elo) : newResuts.sort((a, b) => a.elo - b.elo);
+                setResults(newResuts);
+                break;
+            case "viewers":
+                sortingOrder === "ascending" ? newResuts.sort((a, b) => b.twitch.viewers - a.twitch.viewers) : newResuts.sort((a, b) => a.twitch.viewers - b.twitch.viewers);
+                setResults(newResuts);
+                break;
+            case "duration":
+                sortingOrder === "ascending" ? newResuts.sort((a, b) => new Date(a.twitch.startTimestamp).getTime() - new Date(b.twitch.startTimestamp).getTime()) : newResuts.sort((a, b) => new Date(b.twitch.startTimestamp).getTime() - new Date(a.twitch.startTimestamp).getTime());
+                setResults(newResuts);
+                break;
+            default:
+                sortingOrder === "ascending" ? newResuts.sort((a, b) => b.elo - a.elo) : newResuts.sort((a, b) => a.elo - b.elo);
+                setResults(newResuts);
+                break;
+        }
+    }, [sorting, sortingOrder])
+
     return (
         <div id="options">
             <Dropdown
@@ -59,13 +89,24 @@ export default function Options({ data, setResults } : Props) {
                 options={languageOptionsMap}
                 state={filterLanguages}
                 setState={setFilterLanguages}
+                variant="checkbox"
             />
             <Dropdown
-                label="division"
+                label="Division"
                 id="options-division"
                 options={divisionOptionsMap}
                 state={filterDivisons}
                 setState={setFilterDivisions}
+                variant="checkbox"
+            />
+            <Dropdown
+                label="Sort by"
+                id="options-sort"
+                options={sortingOptionsMap}
+                state={sorting}
+                setState={setSorting}
+                variant="sort"
+                setSortingOrder={setSortingOrder}
             />
         </div>
     )

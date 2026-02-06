@@ -22,7 +22,7 @@ export default function App() {
         axios.get(`http://${backendUrl}:${backendPort}/getstreams`)
             .then((response) => {
                 setData(response.data);
-                setResults(response.data);
+                setResults(response.data.sort((a: { elo: number; }, b: { elo: number; }) => b.elo - a.elo));
             })
             .catch((error) => {
                 throw new Error(error.message);
@@ -31,7 +31,7 @@ export default function App() {
 
     return (
         <>
-            <Options data={data} setResults={setResults} />
+            <Options data={data} results={results} setResults={setResults} />
             <Streams currentTime={currentTime} results={results} />
         </>
     )

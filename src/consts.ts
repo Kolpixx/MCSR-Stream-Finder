@@ -7,4 +7,10 @@ export const divisionsMap: Map<string, Array<number>> = new Map([
     ["netherite", [2000, Infinity]]
 ]);
 
+export const sortingOptionsMap: Map<string, string> = new Map([
+    ["elo", "Elo"],
+    ["viewers", "Viewers"],
+    ["duration", "Duration"]
+]);
+
 export type Division = "coal" | "iron" | "gold" | "emerald" | "diamond" | "netherite";
