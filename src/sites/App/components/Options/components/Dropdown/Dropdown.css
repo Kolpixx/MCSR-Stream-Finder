@@ -30,6 +30,7 @@
     background: var(--overlay);
     border-radius: 0 0 10px 10px;
     box-shadow: var(--drop-shadow);
+    z-index: 1;
 
     & button {
         background: var(--overlay-1);
