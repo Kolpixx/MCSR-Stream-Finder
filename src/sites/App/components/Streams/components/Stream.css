@@ -1,7 +1,9 @@
 .stream-container-wrapper {
     position: relative;
     border-radius: 12px;
+    width: 322px;
     overflow: hidden;
+
     &::after {
         content: "";
         height: 10px;
@@ -13,14 +15,11 @@
 }
 
 .stream-container {
-    position: relative;
-    width: 322px;
     max-height: 360px;
     background: var(--overlay);
     overflow-y: scroll;
     box-shadow: var(--drop-shadow);
     scrollbar-width: none;
-    /* flex: 1 0 auto; */
 }
 
 .stream-container-top {

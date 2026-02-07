@@ -46,9 +46,13 @@ export default function Stream({ stream, currentTime } : Props) {
                             <div className="stream-tags-container">
                                 <span className="stream-container-twitch-info-label">Tags</span>
                                 <div className="stream-tags">
-                                    {stream.twitch.tags?.map((tag, index) => {
-                                        return <div key={index} className="stream-tag">{tag}</div>;
-                                    })}
+                                    {stream.twitch.tags !== null ?
+                                        stream.twitch.tags?.map((tag, index) => {
+                                            return <div key={index} className="stream-tag">{tag}</div>;
+                                        })
+                                        :
+                                        <div className="stream-tag">No Tags :/</div>
+                                    }
                                 </div>
                             </div>
                         </div>
