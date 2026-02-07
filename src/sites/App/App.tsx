@@ -59,7 +59,8 @@ export default function App() {
             </main>
             <footer>
                 <Link to="/credits">Credits</Link>
-                <p id="footer-text">Made with 💚 by <a href="https://github.com/Kolpixx" target="_blank">Kolpix</a></p>
+                <p>Made with 💚 by <a href="https://github.com/Kolpixx" target="_blank">Kolpix</a></p>
+                <a href="https://github.com/Kolpixx/MCSR-Stream-Finder">Source Code</a>
             </footer>
         </div>
     )
