@@ -56,8 +56,6 @@ export default function Options({ data, results, setResults } : Props) {
         }
 
         setResults(newResults);
-
-        console.log(filterLanguages, filterDivisons);
     }, [filterLanguages, filterDivisons]);
 
     useEffect(() => {

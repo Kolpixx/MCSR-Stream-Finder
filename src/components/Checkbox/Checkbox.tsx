@@ -20,7 +20,7 @@ export default function Checkbox({ state, setState, id } : Props) {
                 setState(newState);
             } else {
                 const newState: Array<string> = [...state];
-                newState.splice(newState.findIndex((element) => element === id))
+                newState.splice(newState.findIndex((element) => element === id), 1);
                 setState(newState);
             }
         }
