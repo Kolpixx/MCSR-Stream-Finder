@@ -23,7 +23,7 @@ export default function Options({ data, results, setResults } : Props) {
     
     // States for sorting the results
     const [sorting, setSorting] = useState<string>("elo");
-    const [sortingOrder, setSortingOrder] = useState<SortingOrder>("ascending");
+    const [sortingOrder, setSortingOrder] = useState<SortingOrder>("descending");
 
     // Add all the languages, that are currenty being streamed in, into the languages Map.
     data.forEach((stream) => {
@@ -63,19 +63,19 @@ export default function Options({ data, results, setResults } : Props) {
 
         switch (sorting) {
             case "elo":
-                sortingOrder === "ascending" ? newResuts.sort((a, b) => b.elo - a.elo) : newResuts.sort((a, b) => a.elo - b.elo);
+                sortingOrder === "descending" ? newResuts.sort((a, b) => b.elo - a.elo) : newResuts.sort((a, b) => a.elo - b.elo);
                 setResults(newResuts);
                 break;
             case "viewers":
-                sortingOrder === "ascending" ? newResuts.sort((a, b) => b.twitch.viewers - a.twitch.viewers) : newResuts.sort((a, b) => a.twitch.viewers - b.twitch.viewers);
+                sortingOrder === "descending" ? newResuts.sort((a, b) => b.twitch.viewers - a.twitch.viewers) : newResuts.sort((a, b) => a.twitch.viewers - b.twitch.viewers);
                 setResults(newResuts);
                 break;
             case "duration":
-                sortingOrder === "ascending" ? newResuts.sort((a, b) => new Date(a.twitch.startTimestamp).getTime() - new Date(b.twitch.startTimestamp).getTime()) : newResuts.sort((a, b) => new Date(b.twitch.startTimestamp).getTime() - new Date(a.twitch.startTimestamp).getTime());
+                sortingOrder === "descending" ? newResuts.sort((a, b) => new Date(a.twitch.startTimestamp).getTime() - new Date(b.twitch.startTimestamp).getTime()) : newResuts.sort((a, b) => new Date(b.twitch.startTimestamp).getTime() - new Date(a.twitch.startTimestamp).getTime());
                 setResults(newResuts);
                 break;
             default:
-                sortingOrder === "ascending" ? newResuts.sort((a, b) => b.elo - a.elo) : newResuts.sort((a, b) => a.elo - b.elo);
+                sortingOrder === "descending" ? newResuts.sort((a, b) => b.elo - a.elo) : newResuts.sort((a, b) => a.elo - b.elo);
                 setResults(newResuts);
                 break;
         }
