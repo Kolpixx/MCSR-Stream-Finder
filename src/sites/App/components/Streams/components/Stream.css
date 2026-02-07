@@ -62,12 +62,7 @@
     display: flex;
     gap: 5px;
     overflow-x: hidden;
-    /* flex-wrap: wrap; */
-    /* overflow-x: scroll;
-    scrollbar-width: none;
-    &:hover {
-        scrollbar-width: thin;
-    } */
+    
     &::after {
         position: absolute;
         content: "";
