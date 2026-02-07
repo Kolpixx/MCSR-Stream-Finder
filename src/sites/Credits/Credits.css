@@ -1,0 +1,28 @@
+#credits {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & a {
+        text-decoration: underline;
+    }
+
+    & button {
+        background: none;
+        border: none;
+    }
+
+    & > main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        gap: 10px;
+
+        & > img {
+            width: 150px;
+            height: 150px;
+        }
+    }
+}
