@@ -21,10 +21,9 @@ export default function Stream({ stream, currentTime } : Props) {
             <div className="stream-container-wrapper">
                 <div className="stream-container" onMouseEnter={() => showStream(true)} onMouseLeave={() => showStream(false)}>
                     <div className="stream-container-top">
-                        {showingStream ?
-                            <iframe className="stream-iframe" src={`https://player.twitch.tv/?channel=${stream.twitch.display_name}&parent=localhost`} width="100%" height="100%" allowFullScreen={true} frameBorder="0" ></iframe>
-                            :
-                            <img src={stream.twitch.thumbnail_url} className="stream-thumbnail" />
+                        <img style={{visibility: showingStream ? "hidden" : "initial"}} src={stream.twitch.thumbnail_url} className="stream-thumbnail" />
+                        {showingStream &&
+                            <iframe className="stream-iframe" style={{visibility: showingStream ? "initial" : "hidden"}} src={`https://player.twitch.tv/?channel=${stream.twitch.display_name}&parent=localhost`} allowFullScreen={true} width="100%" height="100%" frameBorder="0" ></iframe>
                         }
                     </div>
                     <div className="stream-container-bottom">

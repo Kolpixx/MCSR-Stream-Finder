@@ -9,6 +9,12 @@ type Props = {
 }
 
 export default function Streams({ results, currentTime } : Props) {
+    const streamPlaceholders: Array<any> = [];
+
+    for (let i = 0; i < 6; i++) {
+        streamPlaceholders.push(<div className="stream-placeholder"></div>)
+    }
+
     return (
         <div id="streams">
             {results?.map((stream, index) => {
@@ -16,6 +22,7 @@ export default function Streams({ results, currentTime } : Props) {
                     <Stream key={index} stream={stream} currentTime={currentTime} />
                 )
             })}
+            {streamPlaceholders}
         </div>
     )
 }
