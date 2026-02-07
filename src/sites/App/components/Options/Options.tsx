@@ -16,6 +16,7 @@ type SortingOrder = "ascending" | "descending";
 export default function Options({ data, results, setResults } : Props) {
     const languageName = new Intl.DisplayNames(["en"], { type: "language"});
     const languages: Map<string, number> = new Map();
+    const divisions: Map<string, number> = new Map();
 
     // States for the filter options
     const [filterLanguages, setFilterLanguages] = useState<Array<string>>([]);
@@ -30,13 +31,17 @@ export default function Options({ data, results, setResults } : Props) {
         languages.set(stream.twitch.language, 1);
     });
 
+    data.forEach((stream) => {
+        divisions.set(stream.division, 1);
+    })
+
     const languageOptionsMap: Map<string, string | undefined> = new Map();
     [...languages.keys()].forEach((language) => {
         language !== undefined && languageOptionsMap.set(language, languageName.of(language));
     });
 
     const divisionOptionsMap: Map<string, string | undefined> = new Map();
-    [...divisionsMap.keys()].forEach((division) => {
+    [...divisions.keys()].forEach((division) => {
         division !== undefined && divisionOptionsMap.set(division, division.charAt(0).toUpperCase() + division.slice(1));
     })
 
