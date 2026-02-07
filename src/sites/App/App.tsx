@@ -18,21 +18,33 @@ export default function App() {
     const [currentTime, setCurrentTime] = useState<Date>(new Date());
     const [finishedAPICall, setFinishedAPICall] = useState<boolean>(false);
 
+    let attempts: number = 0;
+
     setTimeout(() => {
         setCurrentTime(new Date());
     }, 1000);
 
+    function callAPI() {
+        if (attempts < 4) { // I don't know why the attempts increase like two times after loading the page ;-;
+            attempts++;
+            axios.get(`http://${backendUrl}:${backendPort}/getstreams`)
+                .then((response) => {
+                    setFinishedAPICall(true);
+                    setData(response.data);
+                    setResults(response.data.sort((a: { elo: number; }, b: { elo: number; }) => b.elo - a.elo));
+                })
+                .catch((error) => {
+                    setTimeout(() => callAPI(), 2500);
+                    throw new Error(error.message);
+                });
+        } else {
+            setFinishedAPICall(true);
+            throw new Error("Couldn't fetch data from API after 3 attempts");
+        }
+    }
+
     useEffect(() => {
-        axios.get(`http://${backendUrl}:${backendPort}/getstreams`)
-            .then((response) => {
-                setFinishedAPICall(true);
-                setData(response.data);
-                setResults(response.data.sort((a: { elo: number; }, b: { elo: number; }) => b.elo - a.elo));
-            })
-            .catch((error) => {
-                setFinishedAPICall(true);
-                throw new Error(error.message);
-            })
+        callAPI();
     }, []);
 
     return (
