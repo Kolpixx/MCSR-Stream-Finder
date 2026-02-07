@@ -10,17 +10,19 @@ type Props = {
 }
 
 export default function Checkbox({ state, setState, id } : Props) {
-    const [ticked, setTicked] = useState<boolean>(false);
+    const [ticked, setTicked] = useState<boolean>(Boolean(state[state.findIndex((element) => element === id)]));
 
     useEffect(() => {
-        if (ticked) {
-            const newState: Array<string> = [...state];
-            newState.push(id);
-            setState(newState);
-        } else {
-            const newState: Array<string> = [...state];
-            newState.splice(newState.findIndex((element) => element === id))
-            setState(newState);
+        if (Boolean(state[state.findIndex((element) => element === id)]) !== ticked) {
+            if (ticked) {
+                const newState: Array<string> = [...state];
+                newState.push(id);
+                setState(newState);
+            } else {
+                const newState: Array<string> = [...state];
+                newState.splice(newState.findIndex((element) => element === id))
+                setState(newState);
+            }
         }
     }, [ticked])
 

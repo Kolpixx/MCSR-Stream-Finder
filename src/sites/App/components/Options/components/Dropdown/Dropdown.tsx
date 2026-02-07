@@ -11,12 +11,14 @@ type Props = {
     options: Map<string, string | undefined>,
     state: Array<string> | string;
     setState: Function,
-    variant: Variant
+    variant: Variant,
 
-    setSortingOrder?: Function;
+    sorting?: string,
+    sortingOrder?: string,
+    setSortingOrder?: Function
 }
 
-export default function Dropdown({ id, label, options, state, setState, variant, setSortingOrder } : Props) {
+export default function Dropdown({ id, label, options, state, setState, variant, sorting, sortingOrder, setSortingOrder } : Props) {
     const [showingDropdown, showDropdown] = useState<boolean>(false);
 
     return (
@@ -41,7 +43,7 @@ export default function Dropdown({ id, label, options, state, setState, variant,
                                         </>
                                     }
                                     {(variant === "sort" || variant === "radio" && typeof state === "string") &&
-                                        <button onClick={() => setState(option[0])}>
+                                        <button className={option[0] === sorting ? "dropdown-radio-active" : ""} onClick={() => setState(option[0])}>
                                             {option[1]}
                                         </button>
                                     }
@@ -52,8 +54,8 @@ export default function Dropdown({ id, label, options, state, setState, variant,
                             <>
                                 <div className="divider" />
                                 <div className="dropdown-sort-order">
-                                    <button onClick={() => setSortingOrder("ascending")}>Ascending</button>
-                                    <button onClick={() => setSortingOrder("descending")}>Descending</button>
+                                    <button className={sortingOrder === "ascending" ? "dropdown-radio-active" : ""} onClick={() => setSortingOrder("ascending")}>Ascending</button>
+                                    <button className={sortingOrder === "descending" ? "dropdown-radio-active" : ""} onClick={() => setSortingOrder("descending")}>Descending</button>
                                 </div>
                             </>
                         }

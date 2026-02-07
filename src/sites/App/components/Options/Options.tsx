@@ -56,6 +56,8 @@ export default function Options({ data, results, setResults } : Props) {
         }
 
         setResults(newResults);
+
+        console.log(filterLanguages, filterDivisons);
     }, [filterLanguages, filterDivisons]);
 
     useEffect(() => {
@@ -109,6 +111,8 @@ export default function Options({ data, results, setResults } : Props) {
                     state={sorting}
                     setState={setSorting}
                     variant="sort"
+                    sorting={sorting}
+                    sortingOrder={sortingOrder}
                     setSortingOrder={setSortingOrder}
                 />
             </div>
