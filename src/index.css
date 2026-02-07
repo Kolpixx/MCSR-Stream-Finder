@@ -81,14 +81,15 @@ main {
     width: 95%;
     gap: 16px;
     flex-direction: column;
+    min-height: 80vh;
 }
 
 footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
     font-size: 1.1rem;
+    height: 5vh;
 }
 
 h1 {
