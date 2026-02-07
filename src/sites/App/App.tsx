@@ -13,6 +13,7 @@ export default function App() {
     const [data, setData] = useState<Array<StreamType>>([]);
     const [results, setResults] = useState<Array<StreamType>>([]);
     const [currentTime, setCurrentTime] = useState<Date>(new Date());
+    const [finishedAPICall, setFinishedAPICall] = useState<boolean>(false);
 
     setTimeout(() => {
         setCurrentTime(new Date());
@@ -21,10 +22,12 @@ export default function App() {
     useEffect(() => {
         axios.get(`http://${backendUrl}:${backendPort}/getstreams`)
             .then((response) => {
+                setFinishedAPICall(true);
                 setData(response.data);
                 setResults(response.data.sort((a: { elo: number; }, b: { elo: number; }) => b.elo - a.elo));
             })
             .catch((error) => {
+                setFinishedAPICall(true);
                 throw new Error(error.message);
             })
     }, []);
@@ -36,7 +39,12 @@ export default function App() {
             </header>
             <main>
                 <Options data={data} results={results} setResults={setResults} />
-                <Streams currentTime={currentTime} results={results} />
+                {finishedAPICall ?
+                    results.length > 0 ? <Streams currentTime={currentTime} results={results} /> : <div id="no-streams-found"><span>No Streams Found</span></div>
+                    :
+                    <span id="loading-text">Loading...</span>
+                }
+
             </main>
             <footer>
                 <p id="footer-text">Made with 💚 by <a href="https://github.com/Kolpixx" target="_blank">Kolpix</a></p>
