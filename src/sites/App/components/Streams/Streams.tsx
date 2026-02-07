@@ -11,7 +11,7 @@ type Props = {
 export default function Streams({ results, currentTime } : Props) {
     const streamPlaceholders: Array<any> = [];
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 3; i++) {
         streamPlaceholders.push(<div className="stream-placeholder"></div>)
     }
 
