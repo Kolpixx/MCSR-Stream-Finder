@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import Checkbox from '../../../../../../components/Checkbox/Checkbox'
 
 import './Dropdown.css'
@@ -29,6 +30,7 @@ export default function Dropdown({ id, label, options, state, setState, variant,
             <div className="dropdown-wrapper" style={{borderRadius: showingDropdown ? "10px 10px 0 0" : "10px", zIndex: showingDropdown ? "2" : "0"}} id={id}>
                 <div className="dropdown-label-wrapper pointer" onClick={() => showDropdown(!showingDropdown)}>
                     <span className="dropdown-label">{label}</span>
+                    <ChevronDown />
                 </div>
                 {showingDropdown &&
                     <>
