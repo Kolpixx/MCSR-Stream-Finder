@@ -30,9 +30,17 @@ export default function App() {
     }, []);
 
     return (
-        <>
-            <Options data={data} results={results} setResults={setResults} />
-            <Streams currentTime={currentTime} results={results} />
-        </>
+        <div id="app">
+            <header>
+                <h1>MCSR Stream Finder</h1>
+            </header>
+            <main>
+                <Options data={data} results={results} setResults={setResults} />
+                <Streams currentTime={currentTime} results={results} />
+            </main>
+            <footer>
+                <p id="footer-text">Made with 💚 by <a href="https://github.com/Kolpixx" target="_blank">Kolpix</a></p>
+            </footer>
+        </div>
     )
 }

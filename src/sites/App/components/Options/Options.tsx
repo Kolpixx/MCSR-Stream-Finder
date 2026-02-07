@@ -32,12 +32,12 @@ export default function Options({ data, results, setResults } : Props) {
 
     const languageOptionsMap: Map<string, string | undefined> = new Map();
     [...languages.keys()].forEach((language) => {
-        languageOptionsMap.set(language, languageName.of(language));
+        language !== undefined && languageOptionsMap.set(language, languageName.of(language));
     });
 
     const divisionOptionsMap: Map<string, string | undefined> = new Map();
     [...divisionsMap.keys()].forEach((division) => {
-        divisionOptionsMap.set(division, division);
+        division !== undefined && divisionOptionsMap.set(division, division.charAt(0).toUpperCase() + division.slice(1));
     })
 
     useEffect(() => {
@@ -83,31 +83,35 @@ export default function Options({ data, results, setResults } : Props) {
 
     return (
         <div id="options">
-            <Dropdown
-                label="Language"
-                id="options-language"
-                options={languageOptionsMap}
-                state={filterLanguages}
-                setState={setFilterLanguages}
-                variant="checkbox"
-            />
-            <Dropdown
-                label="Division"
-                id="options-division"
-                options={divisionOptionsMap}
-                state={filterDivisons}
-                setState={setFilterDivisions}
-                variant="checkbox"
-            />
-            <Dropdown
-                label="Sort by"
-                id="options-sort"
-                options={sortingOptionsMap}
-                state={sorting}
-                setState={setSorting}
-                variant="sort"
-                setSortingOrder={setSortingOrder}
-            />
+            <div>
+                <Dropdown
+                    label="Language"
+                    id="options-language"
+                    options={languageOptionsMap}
+                    state={filterLanguages}
+                    setState={setFilterLanguages}
+                    variant="checkbox"
+                />
+                <Dropdown
+                    label="Division"
+                    id="options-division"
+                    options={divisionOptionsMap}
+                    state={filterDivisons}
+                    setState={setFilterDivisions}
+                    variant="checkbox"
+                />
+            </div>
+            <div>
+                <Dropdown
+                    label="Sort by"
+                    id="options-sort"
+                    options={sortingOptionsMap}
+                    state={sorting}
+                    setState={setSorting}
+                    variant="sort"
+                    setSortingOrder={setSortingOrder}
+                />
+            </div>
         </div>
     )
 }

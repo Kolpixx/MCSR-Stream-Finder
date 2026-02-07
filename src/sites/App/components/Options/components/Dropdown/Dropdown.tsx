@@ -20,8 +20,8 @@ export default function Dropdown({ id, label, options, state, setState, variant,
     const [showingDropdown, showDropdown] = useState<boolean>(false);
 
     return (
-        <div className="dropdown-wrapper" id={id}>
-            <div className="dropdown-label-wrapper" onClick={() => showDropdown(!showingDropdown)}>
+        <div className="dropdown-wrapper" style={{borderRadius: showingDropdown ? "10px 10px 0 0" : "10px"}} id={id}>
+            <div className="dropdown-label-wrapper pointer" onClick={() => showDropdown(!showingDropdown)}>
                 <span className="dropdown-label">{label}</span>
             </div>
             {showingDropdown &&
@@ -48,13 +48,16 @@ export default function Dropdown({ id, label, options, state, setState, variant,
                                 </div>
                             )
                         })}
+                        {(variant === "sort" && setSortingOrder) &&
+                            <>
+                                <div className="divider" />
+                                <div className="dropdown-sort-order">
+                                    <button onClick={() => setSortingOrder("ascending")}>Ascending</button>
+                                    <button onClick={() => setSortingOrder("descending")}>Descending</button>
+                                </div>
+                            </>
+                        }
                     </div>
-                    {(variant === "sort" && setSortingOrder) &&
-                        <div className="dropdown-sort-order">
-                            <button onClick={() => setSortingOrder("ascending")}>Ascending</button>
-                            <button onClick={() => setSortingOrder("descending")}>Descending</button>
-                        </div>
-                    }
                 </>
                 
             }

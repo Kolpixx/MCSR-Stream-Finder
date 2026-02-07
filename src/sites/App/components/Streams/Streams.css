@@ -1,5 +1,6 @@
 #streams {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 35px;
     color: white;

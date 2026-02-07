@@ -4,6 +4,7 @@
     background: var(--overlay);
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: var(--drop-shadow);
 }
 
 .stream-container-top {
@@ -13,12 +14,6 @@
 .stream-thumbnail {
     width: 100%;
     height: 100%;
-}
-
-.divider {
-    height: 1px;
-    width: 100%;
-    background: var(--overlay-1);
 }
 
 .stream-tags {
@@ -42,12 +37,8 @@
     flex-direction: column;
 }
 
-.stream-container-url {
-    cursor: pointer;
-
-    &:hover {
-        text-decoration: underline;
-    }
+.stream-container-url:hover {
+    text-decoration: underline;
 }
 
 .stream-iframe {

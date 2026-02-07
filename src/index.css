@@ -1,17 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: "Inter", system-ui;
 }
 
 body {
   background: var(--base);
+  min-height: 100vh;
 
   --base: #0F1411;
   --overlay: #000F10;
   --overlay-1: #081419;
+  --overlay-2: #0d1c24;
+
+  --drop-shadow: 2px 2px 5px rgba(0, 0, 0, .3 );
 }
 
 .netherite-elo {
@@ -59,4 +67,46 @@ body {
 a {
   color: unset;
   text-decoration: unset;
+}
+
+header {
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    width: 95%;
+    gap: 16px;
+    flex-direction: column;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-size: 4rem;
+    color: white;
+}
+
+button {
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.divider {
+    height: 2px;
+    border-radius: 3px;
+    width: 100%;
+    background: var(--overlay-1)
 }

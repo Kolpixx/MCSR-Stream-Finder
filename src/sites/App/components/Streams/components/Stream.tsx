@@ -27,7 +27,7 @@ export default function Stream({ stream, currentTime } : Props) {
                 </div>
                 <div className="stream-container-bottom">
                     <div>
-                        <a className="stream-container-url" href={stream.url} target="_blank">{stream.twitch.display_name}</a>
+                        <a className="stream-container-url pointer" href={stream.url} target="_blank">{stream.twitch.display_name}</a>
                         {stream.elo !== undefined &&
                             <>
                                 <span>⬦</span>
