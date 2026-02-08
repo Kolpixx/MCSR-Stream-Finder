@@ -27,7 +27,7 @@ export default function App() {
     function callAPI() {
         if (attempts < 4) { // I don't know why the attempts increase like two times after loading the page ;-;
             attempts++;
-            axios.get(`http://${backendUrl}:${backendPort}/getstreams`)
+            axios.get(`${backendUrl}:${backendPort}/getstreams`)
                 .then((response) => {
                     setFinishedAPICall(true);
                     setData(response.data);
