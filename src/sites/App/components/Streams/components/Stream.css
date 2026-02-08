@@ -81,6 +81,12 @@
     border-radius: 5px;
     font-weight: normal;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 26px;
 }
 
 .stream-container-bottom {
