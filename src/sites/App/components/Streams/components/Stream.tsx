@@ -31,7 +31,7 @@ export default function Stream({ stream, currentTime } : Props) {
                         <div className="stream-container-top">
                             <img style={{visibility: showingStream ? "hidden" : "initial"}} onLoad={() => setLoadedThumbnail(true)} src={thumbnail.src} className="stream-thumbnail" />
                             {showingStream &&
-                                <iframe className="stream-iframe" style={{visibility: showingStream ? "initial" : "hidden"}} src={`https://player.twitch.tv/?channel=${stream.twitch.display_name}&parent=localhost`} allowFullScreen={true} width="100%" height="100%" frameBorder="0" ></iframe>
+                                <iframe className="stream-iframe" style={{visibility: showingStream ? "initial" : "hidden"}} src={`https://player.twitch.tv/?channel=${stream.twitch.display_name}&parent=${window.location.hostname}`} allowFullScreen={true} width="100%" height="100%" frameBorder="0" ></iframe>
                             }
                         </div>
                         <div className="stream-container-bottom">
