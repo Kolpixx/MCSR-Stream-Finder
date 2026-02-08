@@ -72,7 +72,7 @@ export default function App() {
             <footer>
                 <Link to="/credits">Credits</Link>
                 <p>Made with 💚 by <a href="https://github.com/Kolpixx" target="_blank">Kolpix</a></p>
-                <a href="https://github.com/Kolpixx/MCSR-Stream-Finder">Source Code</a>
+                <a href="https://github.com/Kolpixx/MCSR-Stream-Finder" target="_blank">Source Code</a>
             </footer>
         </div>
     )
