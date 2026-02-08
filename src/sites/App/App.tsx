@@ -10,8 +10,8 @@ import blobSadReaching from '../../assets/blobhajs/blob_sad-reaching.png'
 import './App.css'
 
 export default function App() {
-    const backendUrl: string = "localhost";
-    const backendPort: string = "3000";
+    const backendUrl: string = import.meta.env.VITE_REACT_APP_BACKEND_URL || "localhost";
+    const backendPort: string = import.meta.env.VITE_REACT_APP_BACKEND_PORT || "3000";
 
     const [data, setData] = useState<Array<StreamType>>([]);
     const [results, setResults] = useState<Array<StreamType>>([]);
