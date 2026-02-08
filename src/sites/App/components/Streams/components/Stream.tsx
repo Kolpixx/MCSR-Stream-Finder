@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState, type RefObject } from 'react';
 import { getDivision, padNumber } from '../../../../../utils'
 import { Diamond } from 'lucide-react';
 import type { StreamType } from '../../../../../types';
@@ -17,6 +17,7 @@ export default function Stream({ stream, currentTime } : Props) {
 
         const [showingStream, showStream] = useState<boolean>(false);
         const [loadedThumbnail, setLoadedThumbnail] = useState<boolean>(false);
+        const [hoverTimer, setHoverTimer] = useState<number>(0);
 
         const thumbnail = new Image();
         thumbnail.src = stream.twitch.thumbnail_url;
@@ -27,10 +28,10 @@ export default function Stream({ stream, currentTime } : Props) {
         return (
             loadedThumbnail &&
                 <div className="stream-container-wrapper">
-                    <div className="stream-container" onMouseEnter={() => showStream(true)} onMouseLeave={() => showStream(false)}>
+                    <div className="stream-container" onMouseEnter={() => setHoverTimer(setTimeout(() => showStream(true), 1000))} onMouseLeave={() => {clearTimeout(hoverTimer); setHoverTimer(0); showStream(false);}}>
                         <div className="stream-container-top">
-                            <img style={{visibility: showingStream ? "hidden" : "initial"}} onLoad={() => setLoadedThumbnail(true)} src={thumbnail.src} className="stream-thumbnail" />
-                            {showingStream &&
+                            <img onClick={() => window.open(stream.url, "_blank")} style={{visibility: showingStream ? "hidden" : "initial"}} onLoad={() => setLoadedThumbnail(true)} src={thumbnail.src} className="stream-thumbnail pointer" />
+                            {(showingStream && hoverTimer !== 0) &&
                                 <iframe className="stream-iframe" style={{visibility: showingStream ? "initial" : "hidden"}} src={`https://player.twitch.tv/?channel=${stream.twitch.display_name}&parent=${window.location.hostname}`} allowFullScreen={true} width="100%" height="100%" frameBorder="0" ></iframe>
                             }
                         </div>

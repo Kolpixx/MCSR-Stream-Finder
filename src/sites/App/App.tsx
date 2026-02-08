@@ -24,7 +24,7 @@ export default function App() {
         setCurrentTime(new Date());
     }, 1000);
 
-    function callAPI() {
+    async function callAPI() {
         if (attempts < 4) { // I don't know why the attempts increase like two times after loading the page ;-;
             attempts++;
             axios.get(`${backendUrl}:${backendPort}/getstreams`)
