@@ -6,6 +6,8 @@
     outline: 2px solid var(--overlay-1);
     transition: .2s ease outline;
     flex: 1 0 auto;
+    transition: 1 ease visibility;
+    animation: fadeIn 0.2s ease-in;
 
     &::after {
         content: "";
@@ -121,4 +123,9 @@
 
 .stream-container-url:hover {
     text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
