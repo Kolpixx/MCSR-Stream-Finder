@@ -1,4 +1,4 @@
-import { useRef, useState, type RefObject } from 'react';
+import { useState } from 'react';
 import { getDivision, padNumber } from '../../../../../utils'
 import { Diamond } from 'lucide-react';
 import type { StreamType } from '../../../../../types';
