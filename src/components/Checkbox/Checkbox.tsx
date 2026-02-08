@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { X } from 'lucide-react';
 
 import './Checkbox.css'
 
@@ -27,6 +26,6 @@ export default function Checkbox({ state, setState, id } : Props) {
     }, [ticked])
 
     return (
-        <div className="checkbox pointer" id={`checkbox-${id}`} onClick={() => setTicked(!ticked)}>{ticked && <X color="white" /> }</div>
+        <div className="checkbox pointer" id={`checkbox-${id}`} onClick={() => setTicked(!ticked)} style={{backgroundColor: ticked ? "var(--green)" : "var(--overlay-1)"}}></div>
     )
 }

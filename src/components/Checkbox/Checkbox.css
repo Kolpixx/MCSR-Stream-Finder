@@ -2,6 +2,6 @@
     width: 25px;
     height: 25px;
     border-radius: 5px;
-    background: var(--overlay-1);
     color: black;
+    transition: .2s ease background;
 }
