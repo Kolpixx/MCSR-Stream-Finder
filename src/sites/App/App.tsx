@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { StreamType } from '../../types';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Streams from './components/Streams/Streams';
 import Options from './components/Options/Options';
@@ -7,7 +8,6 @@ import blobReading from '../../assets/blobhajs/blob_reading.png'
 import blobSadReaching from '../../assets/blobhajs/blob_sad-reaching.png'
 
 import './App.css'
-import { Link } from 'react-router-dom';
 
 export default function App() {
     const backendUrl: string = "localhost";

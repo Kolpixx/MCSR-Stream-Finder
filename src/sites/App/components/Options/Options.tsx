@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { divisionsMap, sortingOptionsMap } from '../../../../consts';
+import { sortingOptionsMap } from '../../../../consts';
 import type { StreamType } from '../../../../types'
 import Dropdown from './components/Dropdown/Dropdown';
 
