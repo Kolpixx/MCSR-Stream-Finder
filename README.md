@@ -1,73 +1,18 @@
-# React + TypeScript + Vite
+# MCSR Stream Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This free & open-source web app helps you find and filter for streamers that are currently playing MCSR.
 
-Currently, two official plugins are available:
+## How does this work?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+With the help of [MCSR's API](https://docs.mcsrranked.com/#live-), I pull a list of all players who are currently streaming MCSR, have linked their Twitch account and have the "Public Stream" option enabled. Using Twitch's API, I pull some information about the streamer!
+The backend is free and open-source too, you can find it in the [mcsr-stream-finder-backend](https://github.com/kolpixx/mcsr-Stream-Finder-backend) respository. Feel free to check check it out or host an instance yourself!
 
-## React Compiler
+## Images
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Banner
 
-## Expanding the ESLint configuration
+<img src="./assets/banner.webp" height="800px" alt='Banner for MCSR Stream Explorer. On the left side there is the title: "MCSR Stream Finder" along with the subtitle "Quickly find streamers playing your favorite game!". Beneath that is a QR-Code linking to "mcsrstreamfinder.netlify.app". On the right side, three components are showcased.'>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## License
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project is licensed under [MIT](./LICENSE).
