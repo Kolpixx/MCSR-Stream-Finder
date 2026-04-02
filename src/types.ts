@@ -18,3 +18,11 @@ export type TwitchObjectType = {
     twitch_name: string,
     startTimestamp: string
 }
+
+export type StatsObjectType = {
+    personalBest: number,
+    playTime: number,
+    leaderboard: number,
+    matches: number,
+    wins: number
+}

@@ -1,13 +1,15 @@
 .stream-container-wrapper {
+    display: flex;
+    background: var(--overlay);
     position: relative;
     border-radius: 12px;
-    width: 322px;
     overflow: hidden;
     outline: 2px solid var(--overlay-1);
     transition: .2s ease outline;
     flex: 1 0 auto;
     transition: 1 ease visibility;
     animation: fadeIn 0.2s ease-in;
+    box-shadow: var(--drop-shadow);
 
     &::after {
         content: "";
@@ -33,10 +35,10 @@
 }
 
 .stream-container {
-    background: var(--overlay);
     overflow-y: scroll;
-    box-shadow: var(--drop-shadow);
     scrollbar-width: none;
+    width: 322px;
+    flex: 1 0;
 }
 
 .stream-thumbnail {
@@ -64,7 +66,7 @@
     display: flex;
     gap: 5px;
     overflow-x: hidden;
-    
+
     &::after {
         position: absolute;
         content: "";
@@ -92,6 +94,7 @@
 }
 
 .stream-container-bottom {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 5px 10px 10px 10px;
@@ -105,8 +108,14 @@
 
 .stream-container-basic-info {
     display: flex;
-    align-items: center;
-    gap: 5px;
+    justify-content: space-between;
+    width: 100%;
+
+    & > div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
 }
 
 .stream-container-twitch-info {
@@ -125,7 +134,55 @@
     text-decoration: underline;
 }
 
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    font-weight: 450;
+    font-size: 18px;
+    padding: 15px;
+    gap: 10px;
+
+    & ul {
+        list-style: inside;
+        padding-left: 12px;
+    }
+
+    &>.stats-general {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &>img {
+            height: 80px;
+            border-radius: 8px;
+        }
+
+        &>div {
+            &>p {
+                font-size: 28px;
+            }
+
+            &>div {
+                display: flex;
+                align-items: center;
+                gap: 3px;
+            }
+        }
+    }
+}
+
+.mcsr-stats-button {
+    background: none;
+    border: none;
+    color: white;
+}
+
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
