@@ -5,9 +5,8 @@
     border-radius: 12px;
     overflow: hidden;
     outline: 2px solid var(--overlay-1);
-    transition: .2s ease outline;
     flex: 1 0 auto;
-    transition: 1 ease visibility;
+    transition: 1s ease visibility, .2s ease outline, .2s ease width, .2s ease height;
     animation: fadeIn 0.2s ease-in;
     box-shadow: var(--drop-shadow);
 
@@ -141,6 +140,7 @@
     font-size: 18px;
     padding: 15px;
     gap: 10px;
+    animation: .25s ease fadeIn;
 
     & ul {
         list-style: inside;
@@ -184,5 +184,15 @@
 
     to {
         opacity: 1;
+    }
+}
+
+@keyframes moveIn {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100;
     }
 }
