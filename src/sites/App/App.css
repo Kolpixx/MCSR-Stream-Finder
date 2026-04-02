@@ -3,31 +3,43 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 0 30px;
 
     & > header {
         height: 15vh;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        width: 100%;
+
+        & > a {
+            cursor: pointer;
+            color: var(--light-gray);
+            transition: .25s ease color;
+
+            &:hover {
+                color: white;
+            }
+        }
     }
 
     & > main {
         display: flex;
-        width: 95%;
         gap: 16px;
         flex-direction: column;
         min-height: 77vh;
+        width: 100%;
     }
 
     & > footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 95%;
         font-size: 1.1rem;
         height: 7vh;
         color: white;
         text-align: center;
+        width: 100%;
 
         & a:hover {
             text-decoration: underline;

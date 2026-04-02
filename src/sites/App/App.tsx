@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { StreamType } from '../../types';
 import { Link } from 'react-router-dom';
+import { GitBranch } from 'lucide-react';
 import axios from 'axios';
 import Streams from './components/Streams/Streams';
 import Options from './components/Options/Options';
@@ -51,6 +52,7 @@ export default function App() {
         <div id="app">
             <header>
                 <h1>MCSR Stream Finder</h1>
+                <a href="https://github.com/Kolpixx/MCSR-Stream-Finder"><GitBranch size={48} /></a>
             </header>
             <main>
                 <Options data={data} results={results} setResults={setResults} />
@@ -71,8 +73,8 @@ export default function App() {
             </main>
             <footer>
                 <Link to="/credits">Credits</Link>
-                <p>Made with 💚 by <a href="https://github.com/Kolpixx" target="_blank">Kolpix</a></p>
-                <a href="https://github.com/Kolpixx/MCSR-Stream-Finder" target="_blank">Source Code</a>
+                <p>Made with 💚 by <a href="https://github.com/Kolpixx">Kolpix</a></p>
+                <a href="https://github.com/Kolpixx/MCSR-Stream-Finder">Source Code</a>
             </footer>
         </div>
     )
